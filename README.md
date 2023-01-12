@@ -6,7 +6,7 @@ Maize Crop Disease Detection
 !git clone https://github.com/agent87/MaizeUX.git
 
 ## Install dependencies
-!pip install -r requirements.txt
+!conda create -n maize libopencv opencv py-opencv keras streamlit watchdog
 
 ## How to run
 !streamlit run app.py
