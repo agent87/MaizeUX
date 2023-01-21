@@ -6,7 +6,7 @@ import keras
 
 
 class demo:
-    def __init__(self, model_path : str = 'model/maize-detector.h5') -> None:
+    def __init__(self, model_path : str = 'assets/maize-detector.h5') -> None:
         st.title("Gerageza Ikoranabuhanga ryacu!")
         self.model = keras.models.load_model(model_path)
     
