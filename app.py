@@ -41,7 +41,7 @@ def contact():
 def contact_navbar():
     st.sidebar.title("Contact")
     st.sidebar.info("Email: mugenzik@gmail.com")
-    st.sidebar.info("Phone: +250780587387")
+    st.sidebar.success("Phone: +250780587387")
     st.sidebar.map()
 
 
