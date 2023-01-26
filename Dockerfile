@@ -12,4 +12,4 @@ RUN gdown https://drive.google.com/u/0/uc?id=1egGjBDWpd_i5Ny_WhPYm_hiU03pvCh8S
 
 RUN mkdir temp
 
-CMD streamlit run app.py --server.port 80
+CMD streamlit run app.py --server.port 8080
