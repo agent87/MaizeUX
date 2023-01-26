@@ -12,17 +12,24 @@ class demo:
     def __init__(self, model_path : str = 'maize-detector.h5') -> None:
         st.title("Gerageza Ikoranabuhanga ryacu!")
         self.model = keras.models.load_model(model_path)
-    
-        self.demo_input_ui()
 
-    def demo_input_ui(self):
+        capture_tab, upload_tab = st.tabs(['Capture', 'Upload'])
+
+        with capture_tab:
+            self.demo_capture_ui()
+        
+        with upload_tab:
+            self.demo_upload_ui()
+
+    def demo_upload_ui(self):
         img = st.file_uploader("Uploading ifoto y' igihingwa cyawe aha!", type=['png', 'jpg', 'jpeg'])
         if img is not None:
             img_id = self.save_img(img)
             img = self.process_img(img_id)
             prediction = self.predict_img(img)
-
-        img = st.camera_input("Capture ifoto y' igihingwa cyawe aha!")
+    
+    def demo_capture_ui(self):
+        img = st.camera_input("Fata ifoto y' igihingwa cyawe aha!")
         if img is not None:
             img_id = self.save_img(img)
             img = self.process_img(img_id)
@@ -55,16 +62,13 @@ class demo:
         print(np.argmax(pred))
         pred = np.argmax(pred, axis=1)
         if pred == 0:
-            print("Class 1")
-
+            st.success("Your Maize Sample is Healthy!")
         elif pred == 1:
-            print("Class 2")
-
+            st.warning("Your Maize Sample is Infected with Common rust! Please take action immediately!")
         elif pred == 2:
-            print("Class 3")
-
+            st.warning("Your Maize Sample is Infected with Gray Leaf Spot! Please take action immediately!")
         elif pred == 3:
-            print("Class 4")
+            st.warning("Your Maize Sample is Infected ")
         return pred
         
 
