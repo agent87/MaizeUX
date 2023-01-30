@@ -62,13 +62,13 @@ class demo:
         print(np.argmax(pred))
         pred = np.argmax(pred, axis=1)
         if pred == 0:
-            st.success("Your Maize Sample is Healthy!")
+            st.warning("Your Maize Sample is infected with Corn Blight! Please take action immediately!")
         elif pred == 1:
             st.warning("Your Maize Sample is Infected with Common rust! Please take action immediately!")
         elif pred == 2:
             st.warning("Your Maize Sample is Infected with Gray Leaf Spot! Please take action immediately!")
         elif pred == 3:
-            st.warning("Your Maize Sample is Infected ")
+            st.success("Your Maize Sample is Healthy! ")
         return pred
         
 
